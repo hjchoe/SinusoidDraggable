@@ -28,10 +28,10 @@ class Panel extends JPanel
 	{
 		points = new ArrayList<Coord>();
 		theta = new Info();
-		xpoint = new Coord(0d, 0d, 5);
-		ypoint = new Coord(0d, 0d, 5);
-		xpoint.y = Coord.translateY(130d);
-		ypoint.x = Coord.translateX(130d);
+		xpoint = new Coord(-2.5d, 0d, 5);
+		ypoint = new Coord(0d, +2.5d, 5);
+		xpoint.y = Coord.translateY(140d);
+		ypoint.x = Coord.translateX(140d);
 		ind = new Indicator();
 		drag = new Dragger();
 		angle = 0;

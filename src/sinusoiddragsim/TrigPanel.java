@@ -18,8 +18,6 @@ class TrigPanel extends JPanel
 	private ArrayList<Coord> cpoints;
 	private ArrayList<Coord> tpoints;
 	double xvalue = -250;
-	private Indicator sInd;
-	private Indicator cInd;
 	private Coord sPoint;
 	private Coord cPoint;
 	private Coord tPoint;
@@ -33,14 +31,7 @@ class TrigPanel extends JPanel
 		sPoint = new Coord(0d, 0d, 5);
 		cPoint = new Coord(0d, 0d, 5);
 		tPoint = new Coord(0d, 0d, 5);
-		
-		sInd = new Indicator();
-		sInd.x1 = 0d;
-		sInd.y1 = 250d;
-		cInd = new Indicator();
-		cInd.x1 = 0d;
-		cInd.y1 = 250d;
-		
+
 		initUI();
 		setup();
 	}
@@ -84,10 +75,8 @@ class TrigPanel extends JPanel
         g2d.draw(new Line2D.Float(0f, 250f, 500f, 250f));
         
         g2d.setColor(Color.GREEN);
-        g2d.draw(sInd);
         g2d.draw(sPoint);
         g2d.setColor(Color.ORANGE);
-        g2d.draw(cInd);
         g2d.draw(cPoint);
         g2d.setColor(Color.MAGENTA);
         g2d.draw(tPoint);
@@ -126,32 +115,6 @@ class TrigPanel extends JPanel
 		cPoint.y = Coord.translateY(realx)-2.5d;
 		tPoint.y = Coord.translateY(realy/realx)-2.5d;
     	
-    	sInd.x2 = cInd.x2 = Coord.translateX(xvalue);
-		sInd.y1 = sInd.y2 = Coord.translateY(syvalue);
-		cInd.y1 = cInd.y2 = Coord.translateY(cyvalue);
-    	
     	repaint();
     }
-    
-    /*
-    public void sinTick(double syvalue, double cyvalue)
-    {
-    	if (xvalue == 250)
-		{
-    		xvalue = -250;
-    		spoints.clear();
-    		cpoints.clear();
-    		tpoints.clear();
-		}
-    	else xvalue += 0.25;
-    	spoints.add(new Coord(xvalue, syvalue, 1));
-    	cpoints.add(new Coord(xvalue, cyvalue, 1));
-    	tpoints.add(new Coord(xvalue, syvalue/cyvalue, 1));
-    	
-    	sInd.x2 = cInd.x2 = Coord.translateX(xvalue);
-		sInd.y1 = sInd.y2 = Coord.translateY(syvalue);
-		cInd.y1 = cInd.y2 = Coord.translateY(cyvalue);
-    	
-    	repaint();
-    }*/
 }
