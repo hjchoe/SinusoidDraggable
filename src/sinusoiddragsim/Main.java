@@ -6,12 +6,11 @@ class Main
 
     public Main()
     {
-
+    	fr = new Frame();
     }
     
 	public static void main(String[] args)
     {
-    	fr = new Frame();
     	new Main();
     }
 }

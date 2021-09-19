@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
 
@@ -12,7 +13,6 @@ class Frame extends JFrame
 {
 	protected Panel p;
 	protected TrigPanel tp;
-	public static Boolean state = false;
 
 	public Frame()
 	{
@@ -38,6 +38,17 @@ class Frame extends JFrame
         setVisible(true);
 		setFocusable(false);
 		setLayout(null);
+		
+		while (!tp.ready)
+		{
+			try
+			{
+				TimeUnit.SECONDS.wait(1);
+			} catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
 		
 		add(p);
 		add(tp);
@@ -77,7 +88,7 @@ class Frame extends JFrame
             if (grabbed)
             {
             	p.tick(x, y);
-            	tp.sinTick(p.y, p.x);
+            	tp.sinTick(p.angle, p.y, p.x);
             }    
         }
     }

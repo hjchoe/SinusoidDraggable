@@ -18,7 +18,7 @@ class Panel extends JPanel
 	private Coord xpoint;
 	private Coord ypoint;
 	private Info theta;
-	private double angle;
+	double angle;
 	private Indicator ind;
 	private Dragger drag;
 	double x = 0;
